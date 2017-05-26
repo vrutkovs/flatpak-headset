@@ -1,0 +1,50 @@
+{
+    "app-id": "co.headsetapp.App",
+    "base": "io.atom.electron.BaseApp",
+    "base-version": "master",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "1.6",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "headset",
+    "tags": ["nightly"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--share=network",
+        "--socket=pulseaudio",
+        "--socket=x11",
+        "--socket=wayland"
+    ],
+    "modules": [
+        {
+            "name": "headset",
+            "no-autogen": true,
+            "build-options": {
+                "build-args": [
+                    "--share=network"
+                ]
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/headsetapp/headset-electron",
+                    "branch": "v1.5.3-deb"
+                },
+                {
+                    "path": "Makefile-headset",
+                    "type": "file",
+                    "dest-filename": "Makefile"
+                },
+                {
+                    "path": "binary-headset",
+                    "type": "file"
+                },
+                {
+                    "path": "headset.desktop",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

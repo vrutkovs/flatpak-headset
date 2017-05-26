@@ -1,0 +1,17 @@
+all:
+	npm install --no-optional
+
+install:
+	mkdir -p /app/share/headset
+
+	mv binary-headset /app/bin/headset
+	chmod +x /app/bin/headset
+
+	mkdir -p /app/share/applications
+	mv headset.desktop /app/share/applications/co.headsetapp.App.desktop
+	mkdir -p /app/share/icons/hicolor/256x256/apps
+	cp icon.png /app/share/icons/hicolor/256x256/apps/co.headsetapp.App.png
+
+	cp -r * /app/share/headset
+
+.PHONY: all install

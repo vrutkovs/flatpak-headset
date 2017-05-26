@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Headset
+Icon=co.headsetapp.App
+Exec=/app/bin/headset
+Categories=Music;
